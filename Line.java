@@ -1,5 +1,4 @@
-public class Line 
-{
+public class Line implements Comparable<Line> {
     Point p1;
     Point p2;
 
@@ -11,6 +10,7 @@ public class Line
     public double getLength() {
         return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -18,5 +18,10 @@ public class Line
 
         Line other = (Line) obj;
         return Double.compare(this.getLength(), other.getLength()) == 0;
+    }
+
+    @Override
+    public int compareTo(Line other) {
+        return Double.compare(this.getLength(), other.getLength());
     }
 }
